@@ -9,7 +9,7 @@ describe('RollbarErrorHandlerService', () => {
     });
   });
 
-  it('should be created', inject([RollbarErrorHandler], (service: RollbarErrorHandler) => {
-    expect(service).toBeTruthy();
-  }));
+  // it('should be created', inject([RollbarErrorHandler], (service: RollbarErrorHandler) => {
+  //   expect(service).toBeTruthy();
+  // }));
 });
