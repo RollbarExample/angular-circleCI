@@ -34,6 +34,13 @@ jobs:
         
       # run tests!
       #- run: npm test
+
+  deployment:
+  prod:
+    branch: master
+    commands:
+      - aws s3 sync ./dist s3://rollbar-example --delete
+
       
 
 
