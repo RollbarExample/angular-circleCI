@@ -6,7 +6,7 @@ jobs:
     build:
         working_directory: ~/project
         docker:
-            - image: circleci/node:5.6-browsers
+            - image: circleci/node:6.10-browsers
         steps:
             # Checkout the code from the branch into the working_directory
             - checkout
@@ -46,6 +46,17 @@ jobs:
                     else
                         npm run build-dev
                     fi
+            # Notify to rollbar 
+            - run:
+                name: Building
+                command: |
+                   curl https://api.rollbar.com/api/1/deploy/ \
+                    -F access_token=f627d5e044a24b9987a23e54c5df352e \
+                    -F environment=development \
+                    -F revision=${GIT_COMMIT} \
+                    -F rollbar_username=rollbar_username \
+                    -F local_username=jenkins_user \
+                    -F comment='any comments'
             # Cache the dist folder for the deploy job
             - save_cache:
                 key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
@@ -87,6 +98,7 @@ jobs:
                         aws --region us-east-2 s3 sync dist s3://rollbar=example/ --delete
                         
                     fi
+
             
 workflows:
     version: 2
