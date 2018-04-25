@@ -1,5 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
-/*import { AppComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -18,8 +18,8 @@ const rollbarConfig = {
 
 export function rollbarFactory() {
   return new Rollbar(rollbarConfig);
-}*/
-/*
+}
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -52,4 +52,4 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Angular 4 with Rollbar');
   }));
-});*/
+});
