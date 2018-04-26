@@ -89,13 +89,15 @@ jobs:
                         
                     fi
                     # Notify to rollbar 
+                    ACCESS_TOKEN=2a208f30fa1b4f0183adb694c4432038
+                    ENVIRONMENT=production
+                    LOCAL_USERNAME=`whoami`
+                    REVISION=`git log -n 1 --pretty=format:"%H"`
                     curl https://api.rollbar.com/api/1/deploy/ \
-                        -F access_token=f627d5e044a24b9987a23e54c5df352e \
-                        -F environment=development \
-                        -F revision=${GIT_COMMIT} \
-                        -F rollbar_username=rollbar_username \
-                        -F local_username=jenkins_user \
-                        -F comment='any comments'
+                    -F access_token=$ACCESS_TOKEN \
+                    -F environment=$ENVIRONMENT \
+                    -F revision=$REVISION 
+                    
 
             
 workflows:
