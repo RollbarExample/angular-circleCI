@@ -92,7 +92,7 @@ jobs:
                     curl https://api.rollbar.com/api/1/deploy/ \
                         -F access_token=2a208f30fa1b4f0183adb694c4432038 \
                         -F environment=development \
-                        -F revision=`git log -n 1 --pretty=format:"%H"` \
+                        -F revision={{ .Environment.CIRCLE_SHA1 }} \
                         -F comment='any comments'
 
 
