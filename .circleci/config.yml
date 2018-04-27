@@ -85,8 +85,8 @@ jobs:
                     elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
                         aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read
                     elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-                      #  aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read   
-                    aws s3 cp dist s3://rollbar-example --recursive --acl public-read
+                        aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read   
+                    #aws s3 cp dist s3://rollbar-example --recursive --acl public-read
 
                     fi
                     # Notify to rollbar 
