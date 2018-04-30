@@ -12,6 +12,7 @@ const rollbarConfig = {
   captureUncaught: true,
   captureUnhandledRejections: true,
   enabled: true,
+  code_version:"1.0",
   environment: 'dev'
 };
 
