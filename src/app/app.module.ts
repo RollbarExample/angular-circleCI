@@ -13,7 +13,7 @@ const rollbarConfig = {
   captureUnhandledRejections: true,
   enabled: true,
   environment: 'dev',
-  code_version:'angular besrion111'
+  code_version:'angularbesrion111'
 };
 
 
