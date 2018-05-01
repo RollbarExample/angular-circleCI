@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-let versions = require('../environments/versions');
+const versions = require('../environments/versions');
 
 console.log(versions.versions.revision);
 
