@@ -89,8 +89,6 @@ jobs:
                     #aws s3 cp dist s3://rollbar-example --recursive --acl public-read
 
                     fi
-                # Upload sourcemap
-               
                     # Notify to rollbar 
                     curl https://api.rollbar.com/api/1/deploy/ \
                         -F access_token=2a208f30fa1b4f0183adb694c4432038 \
@@ -99,11 +97,7 @@ jobs:
                         -F rollbar_username=RollbarExample \
                         -F local_username=wahidali12 \
                         -F comment='any comments'
-
-  
-
-
-            
+    
 workflows:
     version: 2
     # The build and deploy workflow
