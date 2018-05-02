@@ -65,6 +65,7 @@ jobs:
                 command: echo ${CIRCLE_BRANCH}
             # Restore cache from the build job which contains the
             # dist folder that needs to be deployed
+
             - restore_cache:
                 key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
             # Install AWS cli
@@ -77,6 +78,14 @@ jobs:
                 name: Setting Signature Version 4 for S3 Request Authentication
                 command: aws configure set default.s3.signature_version s3v4
             # Deploy to the S3 bucket corresponding to the current branch
+            -run:
+                name: Upload Source map
+                command: |
+                 curl https://api.rollbar.com/api/1/sourcemap \
+                -F access_token=2a208f30fa1b4f0183adb694c4432038 \
+                -F version=$CIRCLE_SHA1 \
+                -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js \
+                -F source_map=main.bundle.js.map 
             - run:
                 name: Deploy to S3
                 command: | 
