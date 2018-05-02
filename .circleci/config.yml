@@ -78,7 +78,7 @@ jobs:
                 name: Setting Signature Version 4 for S3 Request Authentication
                 command: aws configure set default.s3.signature_version s3v4
             # Deploy to the S3 bucket corresponding to the current branch
-            -run:
+            - run:
                 name: Upload Source map
                 command: |
                  curl https://api.rollbar.com/api/1/sourcemap \
