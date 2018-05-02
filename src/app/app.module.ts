@@ -18,7 +18,7 @@ const rollbarConfig = {
   captureUnhandledRejections: true,
   source_map_enabled: true,
   enabled: true,
-  code_version: versions.versions.revision,
+  code_version: 'b232af0db9f6',
   environment: 'dev'
 };
 
