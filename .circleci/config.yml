@@ -101,7 +101,7 @@ jobs:
                     # Notify to rollbar 
                     curl https://api.rollbar.com/api/1/deploy/ \
                         -F access_token=2a208f30fa1b4f0183adb694c4432038 \
-                        -F environment=development \
+                        -F environment=production \
                         -F revision=$CIRCLE_SHA1 \
                         -F rollbar_username=RollbarExample \
                         -F local_username=wahidali12 \
