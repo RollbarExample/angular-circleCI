@@ -90,7 +90,7 @@ jobs:
 
                     fi
                 # Upload sourcemap
-                curl https://api.rollbar.com/api/1/sourcemap \
+                curl https://api.rollbar.com/api/1/sourcemap/ \
                 -F access_token=2a208f30fa1b4f0183adb694c4432038 \
                 -F version=$CIRCLE_SHA1 \
                 -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js \
