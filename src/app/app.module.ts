@@ -21,9 +21,9 @@ const rollbarConfig = {
   code_version: versions.versions.revision,
   environment: 'production',
   server: {
-    branch: "master",
-    host: "s3.us-east-2.amazonaws.com",
-    root:"/" //set this to enable linking to your git repo
+    branch: 'master',
+    host: 's3.us-east-2.amazonaws.com',
+    root:'/' //set this to enable linking to your git repo
   }
 };
 
