@@ -86,9 +86,8 @@ jobs:
                     -F access_token=2a208f30fa1b4f0183adb694c4432038 \
                     -F version=$CIRCLE_SHA1 \
                     -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js \
-                    -F source_map=main.[hash].bundle.js.map \
-                    -F main.js=main.[hash].js
-
+                    -F source_map=main.[hash].bundle.js.map 
+                    
                     if [ "${CIRCLE_BRANCH}" == "develop" ]; then
                         aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read
                     elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
