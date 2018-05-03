@@ -82,7 +82,12 @@ jobs:
             - run:
                 name: Deploy to S3
                 command: |
-
+                    curl https://api.rollbar.com/api/1/sourcemap \
+                        -F access_token=2a208f30fa1b4f0183adb694c4432038 \
+                        -F version=$CIRCLE_SHA1 \
+                        -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js \
+                        -F source_map=main.[hash].bundle.js.map \
+                        -F main.js=main.[hash].bundle.js
                     if [ "${CIRCLE_BRANCH}" == "develop" ]; then
                         aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read
                     elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
@@ -93,12 +98,7 @@ jobs:
 
                     fi
 
-                     curl https://api.rollbar.com/api/1/sourcemap \
-                        -F access_token=2a208f30fa1b4f0183adb694c4432038 \
-                        -F version=$CIRCLE_SHA1 \
-                        -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js \
-                        -F source_map=main.[hash].bundle.js.map \
-                        -F main.js=main.bundle.js
+                    
                     # Notify to rollbar 
                     curl https://api.rollbar.com/api/1/deploy/ \
                         -F access_token=2a208f30fa1b4f0183adb694c4432038 \
