@@ -16,15 +16,9 @@ const rollbarConfig = {
   accessToken: 'f627d5e044a24b9987a23e54c5df352e',
   captureUncaught: true,
   captureUnhandledRejections: true,
-  source_map_enabled: true,
-  enabled: true,
+    enabled: true,
   code_version: versions.versions.revision,
-  environment: 'production',
-  server: {
-          branch: 'master',
-          host: 's3.us-east-2.amazonaws.com',
-          root: '/'
-        }
+  environment: 'production'
 };
 
 console.log(JSON.stringify(rollbarConfig));
