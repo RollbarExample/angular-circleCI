@@ -84,7 +84,7 @@ jobs:
                 command: |
                     curl https://api.rollbar.com/api/1/sourcemap \
                         -F access_token=2a208f30fa1b4f0183adb694c4432038 \
-                        -F version=1.0.0 \
+                        -F version=${ .Environment.CIRCLE_SHA1 } \
                         -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js \
                         -F source_map=dist/main.[${CIRCLE_HASH}].bundle.js.map \
                         -F main.js=dist/main.js
