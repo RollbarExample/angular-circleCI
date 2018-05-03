@@ -19,7 +19,12 @@ const rollbarConfig = {
   source_map_enabled: true,
   enabled: true,
   code_version: versions.versions.revision,
-  environment: 'production'
+  environment: 'production',
+  server: {
+          branch: 'master',
+          host: 's3.us-east-2.amazonaws.com',
+          root: 'server.root'
+        }
 };
 
 console.log(JSON.stringify(rollbarConfig));
