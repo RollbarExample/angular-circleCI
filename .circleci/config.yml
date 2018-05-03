@@ -87,7 +87,7 @@ jobs:
                         -F version=$CIRCLE_SHA1 \
                         -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js \
                         -F source_map=main.bundle.js.map \
-                        -F main.js=@main.js
+                        -F main.js=main.js
 
                     if [ "${CIRCLE_BRANCH}" == "develop" ]; then
                         aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read
