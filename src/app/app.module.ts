@@ -22,7 +22,7 @@ const rollbarConfig = {
   environment: 'production'
 };
 
-console.log(JSON.stringify(rollbarConfig));
+console.log(JSON.stringify(rollbarConfig.code_version));
 
 export function rollbarFactory() {
   return new Rollbar(rollbarConfig);
