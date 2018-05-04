@@ -86,7 +86,8 @@ jobs:
                         -F access_token=2a208f30fa1b4f0183adb694c4432038 \
                         -F version=$CIRCLE_SHA1 \
                         -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js \
-                        -F source_map=main.[hash].bundle.js.map 
+                        -F source_map=main.[hash].bundle.js.map \
+                        -F main.ts=main.js
 
                     if [ "${CIRCLE_BRANCH}" == "develop" ]; then
                         aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read
@@ -97,8 +98,6 @@ jobs:
                     #aws s3 cp dist s3://rollbar-example --recursive --acl public-read
 
                     fi
-
-                    
                     # Notify to rollbar 
                     curl https://api.rollbar.com/api/1/deploy/ \
                         -F access_token=2a208f30fa1b4f0183adb694c4432038 \
