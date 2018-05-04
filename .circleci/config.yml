@@ -105,7 +105,7 @@ jobs:
                         -F revision=$CIRCLE_SHA1 \
                         -F rollbar_username=RollbarExample \
                         -F local_username=wahidali12 \
-                        -F comment='any comments'
+                        -F comment='Deploy with bug'
     
 workflows:
     version: 2
