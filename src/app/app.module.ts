@@ -21,7 +21,7 @@ const rollbarConfig = {
   environment: 'production',
   server: {
     branch: "master",
-    root:"/"
+    root: "/"
   }
 };
 
