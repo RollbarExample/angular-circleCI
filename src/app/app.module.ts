@@ -22,7 +22,7 @@ const rollbarConfig = {
   server: {
     branch: 'master',
     host: 'https://s3.us-east-2.amazonaws.com/rollbar-example/',
-    root:'/'
+    root: '/'
   }
 };
 
