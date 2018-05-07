@@ -18,12 +18,7 @@ const rollbarConfig = {
   captureUnhandledRejections: true,
   enabled: true,
   code_version: versions.versions.revision,
-  environment: 'production',
-  server: {
-    branch: 'master',
-    host: 'https://s3.us-east-2.amazonaws.com/rollbar-example/',
-    root: '/'
-  }
+  environment: 'production'
 };
 
 console.log(JSON.stringify(rollbarConfig));
