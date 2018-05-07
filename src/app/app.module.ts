@@ -18,10 +18,10 @@ const rollbarConfig = {
   captureUnhandledRejections: true,
   enabled: true,
   code_version: versions.versions.revision,
-  environment: 'production'
+  environment: 'production',
   server: {
     branch: "master",
-    root:"/" //set this to enable linking to your git repo
+    root:"/"
   }
 };
 
