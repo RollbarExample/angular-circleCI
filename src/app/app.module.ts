@@ -20,8 +20,8 @@ const rollbarConfig = {
   code_version: versions.versions.revision,
   environment: 'production',
   server: {
-    branch: "master",
-    root: "/"
+    branch: 'master',
+    root: '/'
   }
 };
 
