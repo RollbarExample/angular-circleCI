@@ -20,7 +20,6 @@ export class AppComponent {
     }
   }
   manualHandle() {
-    
       this.rollbar.error(this.errorMessage);
   }
 }
