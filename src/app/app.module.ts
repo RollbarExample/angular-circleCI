@@ -18,8 +18,8 @@ const rollbarConfig = {
   captureUnhandledRejections: true,
   enabled: true,
   code_version: versions.versions.revision,
-  environment: 'production'
-  server.root: '/'
+  environment: 'production',
+  root: '/'
 };
 
 console.log(JSON.stringify(rollbarConfig));
