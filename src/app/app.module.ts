@@ -17,9 +17,16 @@ const rollbarConfig = {
   captureUncaught: true,
   captureUnhandledRejections: true,
   enabled: true,
+  source_map_enabled: true,
   code_version: versions.versions.revision,
   environment: 'production',
-  root: '/'
+  payload: {
+    server: {
+      branch: 'master',
+      host: 'web1.mysite.com',
+      root: '/'
+    }
+  }
 };
 
 console.log(JSON.stringify(rollbarConfig));
