@@ -19,6 +19,7 @@ const rollbarConfig = {
   enabled: true,
   code_version: versions.versions.revision,
   environment: 'production'
+  server.root: '/'
 };
 
 console.log(JSON.stringify(rollbarConfig));
