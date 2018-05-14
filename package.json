@@ -3,6 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build": "ng build",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "build-dev": "ng build --target=development --environment=dev",
+    "build-qa": "ng build --target=production --environment=qa",
     "start": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start",
     "prebuild.prod": "ts-node git.version.ts",
