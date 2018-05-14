@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     'polyfills': './src/polyfills.ts',
     'main': './src/main.ts'
+
   },
 
   resolve: {
