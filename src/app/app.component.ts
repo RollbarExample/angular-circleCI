@@ -15,10 +15,9 @@ export class AppComponent {
   errorMessage = 'Hello World, Error Message';
 
   sendError() {
+    console.log('Introducing an error code here');
     if ( 1 === 1 ) {
-
       throw new Error(this.errorMessage);
-      
     }
   }
   manualHandle() {
