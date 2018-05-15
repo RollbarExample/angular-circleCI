@@ -24,7 +24,7 @@ const rollbarConfig = {
     server: {
       branch: 'master',
       host: 'web1.mysite.com',
-      root: '/'
+      root: 'webpack:///./'
     }
   }
 };
