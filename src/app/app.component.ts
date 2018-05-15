@@ -16,7 +16,9 @@ export class AppComponent {
 
   sendError() {
     if ( 1 === 1 ) {
+
       throw new Error(this.errorMessage);
+      
     }
   }
   manualHandle() {
