@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 let exec = require('child_process').exec;
 
 const revision = new Observable<string>(s => {
-    exec('git rev-parse --short=12 HEAD',
+    exec('git rev-parse HEAD',
         function (error: Error, stdout: Buffer, stderr: Buffer) {
             if (error !== null) {
                 console.log('git error: ' + error + stderr);
