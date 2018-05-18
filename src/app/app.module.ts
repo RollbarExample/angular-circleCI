@@ -23,7 +23,6 @@ const rollbarConfig = {
   payload: {
     server: {
       branch: 'master',
-      host: 'web1.mysite.com',
       root: 'webpack:///./'
     }
   }
