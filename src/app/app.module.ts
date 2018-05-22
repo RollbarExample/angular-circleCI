@@ -3,10 +3,7 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const versions = require('../environments/versions');
-
 console.log(versions.versions.revision);
-
-
 import { AppComponent } from './app.component';
 import * as Rollbar from 'rollbar';
 import {RollbarErrorHandler} from '../services/rollbar-error-handler';
