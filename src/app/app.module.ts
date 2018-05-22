@@ -13,9 +13,9 @@ import {RollbarErrorHandler} from '../services/rollbar-error-handler';
 import { version } from 'punycode';
 
 const rollbarConfig = {
+  accessToken: 'f627d5e044a24b9987a23e54c5df352e',
   client: {
     javascript: {
-      accessToken: 'f627d5e044a24b9987a23e54c5df352e',
       captureUncaught: true,
       captureUnhandledRejections: true,
       enabled: true,
