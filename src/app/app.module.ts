@@ -17,10 +17,10 @@ const rollbarConfig = {
       captureUnhandledRejections: true,
       enabled: true,
       source_map_enabled: true,
+      environment: 'production',
       code_version: versions.versions.revision
     }
   },
-  environment: 'production',
   payload: {
     server: {
       branch: 'master',
