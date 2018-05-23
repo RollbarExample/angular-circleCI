@@ -13,14 +13,14 @@ const rollbarConfig = {
   accessToken: 'f627d5e044a24b9987a23e54c5df352e',
   client: {
     javascript: {
-      captureUncaught: true,
-      captureUnhandledRejections: true,
-      enabled: true,
-      source_map_enabled: true,
-      environment: 'production',
       code_version: versions.versions.revision
     }
   },
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+  enabled: true,
+  source_map_enabled: true,
+  environment: 'production',
   payload: {
     server: {
       branch: 'master',
