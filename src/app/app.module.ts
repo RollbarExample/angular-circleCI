@@ -11,11 +11,7 @@ import { version } from 'punycode';
 
 const rollbarConfig = {
   accessToken: 'f627d5e044a24b9987a23e54c5df352e',
-  client: {
-    javascript: {
-      code_version: versions.versions.revision
-    }
-  },
+  
   captureUncaught: true,
   captureUnhandledRejections: true,
   enabled: true,
@@ -25,6 +21,11 @@ const rollbarConfig = {
     server: {
       branch: 'master',
       root: 'webpack:///./'
+    },
+    client: {
+      javascript: {
+        code_version: versions.versions.revision
+      }
     }
   }
 };
