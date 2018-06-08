@@ -106,7 +106,7 @@ jobs:
                         -F environment=production \
                         -F revision=$CIRCLE_SHA1 \
                         -F rollbar_username=RollbarExample \
-                        -F local_username=wahidali12 \
+                        -F local_username=$CIRCLE_USERNAME \
                         -F comment='Deploy with bug'
     
 workflows:
