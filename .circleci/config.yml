@@ -64,11 +64,12 @@ jobs:
             environment:
                 ROLLBAR_ACCESS_TOKEN: {{2a208f30fa1b4f0183adb694c4432038}}
                 ROLLBAR_ENVIRONMENT: development
-      - checkout
-      - rollbar/notify_deploy_started:
-          environment: $ROLLBAR_ENVIRONMENT
+      
         steps:
             # Log the current branch
+            - checkout
+            - rollbar/notify_deploy_started:
+                 environment: $ROLLBAR_ENVIRONMENT
             - run:
                 name: Show current branch
                 command: echo ${CIRCLE_BRANCH}
