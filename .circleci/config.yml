@@ -104,20 +104,21 @@ orbs:
   deploy: rollbar/deploy@1.0.1
 workflows:
     version: 2.1
+    "Hello Workflow":
     # The build and deploy workflow
-    jobs:
-        - build
-            # The deploy job will only run on the filtered branches and
-            # require the build job to be successful before it starts
-        - deploy:
-            requires:
-                - build
-            filters:
-                branches:
-                    only:
-                        - develop
-                        - staging
-                        - master
-        - deploy/notify_deploy_started
-        - deploy/notify_deploy_finished
-        - deploy/notify_deploy
+        jobs:
+            - build
+                # The deploy job will only run on the filtered branches and
+                # require the build job to be successful before it starts
+            - deploy:
+                requires:
+                    - build
+                filters:
+                    branches:
+                        only:
+                            - develop
+                            - staging
+                            - master
+            - deploy/notify_deploy_started
+            - deploy/notify_deploy_finished
+            - deploy/notify_deploy
