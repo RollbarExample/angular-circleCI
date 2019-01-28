@@ -55,7 +55,10 @@ jobs:
                 key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
                 paths:
                     - dist
-
+            - rollbar/upload_sourcemap:
+                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js
+                source_map:dist/main.[hash].bundle.js.map
+                js_files: ./src/main.ts
      # The deploy job
     deploy:
         working_directory: ~/project
@@ -90,10 +93,6 @@ jobs:
                 name: Setting Signature Version 4 for S3 Request Authentication
                 command: aws configure set default.s3.signature_version s3v4
             # Deploy to the S3 bucket corresponding to the current branch
-            - rollbar/upload_sourcemap:
-                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js
-                source_map: main.bundle.js.map
-                js_files: ./src/main.ts
             - run:
                 name: Deploy to S3
                 command: |
@@ -124,9 +123,6 @@ workflows:
     "Hello Workflow":
     # The build and deploy workflow
         jobs:
-#- rollbar/notify_deploy_started  
-            #- deploy/notify_deploy_finished
-            #- deploy/notify_deploy 
             - build
                 # The deploy job will only run on the filtered branches and
                 # require the build job to be successful before it starts
