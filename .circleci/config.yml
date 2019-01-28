@@ -1,13 +1,10 @@
 version: 2.1
 
 # List of jobs
-orbs:
-  deploy: rollbar/deploy@1.0.1
+
 jobs:
     # The build job
-    - deploy/notify_deploy_started
-    - deploy/notify_deploy_finished
-    - deploy/notify_deploy 
+   
     build:
         working_directory: ~/project
         docker:
@@ -106,12 +103,15 @@ jobs:
                     # Notify to rollbar 
    
 orbs:
-  deploy1: rollbar/deploy@1.0.1
+  deploy: rollbar/deploy@1.0.1
 workflows:
     version: 2.1
     "Hello Workflow":
     # The build and deploy workflow
         jobs:
+            - deploy/notify_deploy_started
+            - deploy/notify_deploy_finished
+            - deploy/notify_deploy 
             - build
                 # The deploy job will only run on the filtered branches and
                 # require the build job to be successful before it starts
