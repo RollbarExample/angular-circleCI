@@ -61,9 +61,9 @@ jobs:
         working_directory: ~/project
         docker:
             - image: circleci/node:6.10-browsers
-            environment:
-                ROLLBAR_ACCESS_TOKEN: {{2a208f30fa1b4f0183adb694c4432038}}
-                ROLLBAR_ENVIRONMENT: development
+        environment:
+            ROLLBAR_ACCESS_TOKEN: {{2a208f30fa1b4f0183adb694c4432038}}
+            ROLLBAR_ENVIRONMENT: development
       
         steps:
             # Log the current branch
