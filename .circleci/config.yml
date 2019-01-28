@@ -119,6 +119,6 @@ workflows:
                             - develop
                             - staging
                             - master
-            - notify_deploy_started
-            - notify_deploy_finished
-            - notify_deploy
+            notify_deploy_started:
+            notify_deploy_finished:
+            notify_deploy:
