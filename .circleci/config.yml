@@ -119,6 +119,6 @@ workflows:
                             - develop
                             - staging
                             - master
-    - rollbarorb/notify_deploy_started
-    - rollbarorb/notify_deploy_finished
-    - rollbarorb/notify_deploy
+    rollbarorb/notify_deploy_started:
+    rollbarorb/notify_deploy_finished:
+    rollbarorb/notify_deploy:
