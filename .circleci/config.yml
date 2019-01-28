@@ -109,7 +109,12 @@ workflows:
     "Hello Workflow":
     # The build and deploy workflow
         jobs:
-            - rollbar/notify_deploy_started
+            rollbar/notify_deploy_started:
+                parameters:
+                    environment:
+                        type: string
+                        default: production
+                        description: The Rollbar environment. Defaults to production.
             - deploy/notify_deploy_finished
             - deploy/notify_deploy 
             - build
