@@ -103,13 +103,13 @@ jobs:
                     # Notify to rollbar 
    
 orbs:
-  deploy: rollbar/deploy@1.0.1
+  rollbar: rollbar/deploy@1.0.1
 workflows:
     version: 2.1
     "Hello Workflow":
     # The build and deploy workflow
         jobs:
-            - deploy/notify_deploy_started
+            - rollbar/notify_deploy_started
             - deploy/notify_deploy_finished
             - deploy/notify_deploy 
             - build
