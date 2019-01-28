@@ -101,7 +101,7 @@ jobs:
                     # Notify to rollbar 
     
 orbs:
-  deploy: rollbar/deploy@1.0.1
+  rollbarorb: rollbar/deploy@1.0.1
 workflows:
     version: 2.1
     # The build and deploy workflow
@@ -119,6 +119,6 @@ workflows:
                             - develop
                             - staging
                             - master
-    notify_deploy_started:
-    notify_deploy_finished:
-    notify_deploy:
+            - rollbarorb/notify_deploy_started
+            - rollbarorb/notify_deploy_finished
+            - rollbarorb/notify_deploy
