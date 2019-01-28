@@ -81,7 +81,7 @@ jobs:
                 key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
             - rollbar/upload_sourcemap:
                 minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js
-                source_map: main.[hash].bundle.js.map
+                #source_map: main.[hash].bundle.js.map
                 js_files: ./src/main.ts
             # Install AWS cli
             - run:
