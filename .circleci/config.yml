@@ -1,6 +1,5 @@
 version: 2.1
-orbs:
-  deploy: rollbar/deploy@1.0.1
+
 # List of jobs
 jobs:
     # The build job
@@ -101,7 +100,8 @@ jobs:
                     fi
                     # Notify to rollbar 
     
-
+orbs:
+  deploy: rollbar/deploy@1.0.1
 workflows:
     version: 2.1
     # The build and deploy workflow
