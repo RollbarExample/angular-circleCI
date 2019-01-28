@@ -5,6 +5,9 @@ orbs:
   deploy: rollbar/deploy@1.0.1
 jobs:
     # The build job
+    - deploy1/notify_deploy_started
+    - deploy1/notify_deploy_finished
+    - deploy1/notify_deploy 
     build:
         working_directory: ~/project
         docker:
@@ -101,9 +104,7 @@ jobs:
 
                     fi
                     # Notify to rollbar 
-    - deploy1/notify_deploy_started
-    - deploy1/notify_deploy_finished
-    - deploy1/notify_deploy   
+   
 orbs:
   deploy1: rollbar/deploy@1.0.1
 workflows:
