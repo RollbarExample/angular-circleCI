@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 # List of jobs
 jobs:
@@ -82,12 +82,12 @@ jobs:
             - run:
                 name: Deploy to S3
                 command: |
-                    curl https://api.rollbar.com/api/1/sourcemap/ \
-                        -F access_token=2a208f30fa1b4f0183adb694c4432038 \
-                        -F version=$CIRCLE_SHA1 \
-                        -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js \
-                        -F source_map=main.[hash].bundle.js.map \
-                        -F main.ts=./src/main.ts
+                   # curl https://api.rollbar.com/api/1/sourcemap/ \
+                    #    -F access_token=2a208f30fa1b4f0183adb694c4432038 \
+                    #    -F version=$CIRCLE_SHA1 \
+                    #    -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js \
+                    #    -F source_map=main.[hash].bundle.js.map \
+                    #    -F main.ts=./src/main.ts
 
                     if [ "${CIRCLE_BRANCH}" == "develop" ]; then
                         aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read
@@ -98,19 +98,14 @@ jobs:
                     #aws s3 cp dist s3://rollbar-example --recursive --acl public-read
 
                     fi
-
-                    
                     # Notify to rollbar 
-                    curl https://api.rollbar.com/api/1/deploy/ \
-                        -F access_token=2a208f30fa1b4f0183adb694c4432038 \
-                        -F environment=production \
-                        -F revision=$CIRCLE_SHA1 \
-                        -F rollbar_username=RollbarExample \
-                        -F local_username=$CIRCLE_USERNAME \
-                        -F comment='Deploy with bug'
-    
+                   notify_deploy_started:
+                   notify_deploy_finished:
+                   notify_deploy:
+orbs:
+  deploy: rollbar/deploy@1.0.1
 workflows:
-    version: 2
+    version: 2.1
     # The build and deploy workflow
     build_and_deploy:
         jobs:
