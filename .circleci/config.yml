@@ -72,8 +72,8 @@ jobs:
                 environment: $ROLLBAR_ENVIRONMENT
             - rollbar/upload_sourcemap:
                 minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js
-                source_map: static/js/rollbar.js.map
-                js_files:  main.ts=./src/main.ts
+                source_map: main.[hash].bundle.js.map
+                js_files: ./src/main.ts
             - run:
                 name: Show current branch
                 command: echo ${CIRCLE_BRANCH}
