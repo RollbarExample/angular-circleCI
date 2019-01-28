@@ -115,8 +115,8 @@ workflows:
                         type: string
                         default: production
                         description: The Rollbar environment. Defaults to production.
-            - deploy/notify_deploy_finished
-            - deploy/notify_deploy 
+            #- deploy/notify_deploy_finished
+            #- deploy/notify_deploy 
             - build
                 # The deploy job will only run on the filtered branches and
                 # require the build job to be successful before it starts
