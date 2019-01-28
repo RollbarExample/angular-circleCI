@@ -114,7 +114,9 @@ jobs:
 
                     fi
                     # Notify to rollbar 
-            
+            - rollbar/notify_deploy_finished:
+                deploy_id: $ROLLBAR_DEPLOY_ID
+                status: succeeded
    
 
 workflows:
