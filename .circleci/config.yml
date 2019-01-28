@@ -1,7 +1,8 @@
 version: 2.1
 
 # List of jobs
-
+orbs:
+  rollbar: rollbar/deploy@1.0.1
 jobs:
     # The build job
    
@@ -60,6 +61,12 @@ jobs:
         working_directory: ~/project
         docker:
             - image: circleci/node:6.10-browsers
+            environment:
+                ROLLBAR_ACCESS_TOKEN: {{2a208f30fa1b4f0183adb694c4432038}}
+                ROLLBAR_ENVIRONMENT: development
+      - checkout
+      - rollbar/notify_deploy_started:
+          environment: $ROLLBAR_ENVIRONMENT
         steps:
             # Log the current branch
             - run:
@@ -102,19 +109,13 @@ jobs:
                     fi
                     # Notify to rollbar 
    
-orbs:
-  rollbar: rollbar/deploy@1.0.1
+
 workflows:
     version: 2.1
     "Hello Workflow":
     # The build and deploy workflow
         jobs:
-            rollbar/notify_deploy_started:
-                parameters:
-                    environment:
-                        type: string
-                        default: production
-                        description: The Rollbar environment. Defaults to production.
+#- rollbar/notify_deploy_started  
             #- deploy/notify_deploy_finished
             #- deploy/notify_deploy 
             - build
