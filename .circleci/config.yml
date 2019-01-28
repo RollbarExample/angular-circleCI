@@ -99,9 +99,7 @@ jobs:
 
                     fi
                     # Notify to rollbar 
-                   notify_deploy_started:
-                   notify_deploy_finished:
-                   notify_deploy:
+    
 orbs:
   deploy: rollbar/deploy@1.0.1
 workflows:
@@ -121,3 +119,6 @@ workflows:
                             - develop
                             - staging
                             - master
+    notify_deploy_started:
+    notify_deploy_finished:
+    notify_deploy:
