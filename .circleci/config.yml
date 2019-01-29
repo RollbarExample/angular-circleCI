@@ -57,7 +57,7 @@ jobs:
                     - dist
             - run:
                 name: Show hash
-                command: echo ${HASH}
+                command: echo $hash
      # The deploy job
     deploy:
         working_directory: ~/project
