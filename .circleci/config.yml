@@ -55,6 +55,9 @@ jobs:
                 key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
                 paths:
                     - dist
+            - run:
+                name: Show hash
+                command: echo "Show hash"
      # The deploy job
     deploy:
         working_directory: ~/project
