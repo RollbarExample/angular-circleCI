@@ -89,8 +89,8 @@ jobs:
                 name: Setting Signature Version 4 for S3 Request Authentication
                 command: aws configure set default.s3.signature_version s3v4
             - rollbar/upload_sourcemap:
-                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js
-                source_map: main.[hash].bundle.js.map
+                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.$CIRCLE_SHA1.bundle.js
+                source_map: main.$CIRCLE_SHA1.bundle.js.map
                 js_files: ./src/main.ts
             # Deploy to the S3 bucket corresponding to the current branch
             - run:
