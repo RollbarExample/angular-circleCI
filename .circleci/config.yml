@@ -91,7 +91,7 @@ jobs:
             - rollbar/upload_sourcemap:
                 minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js
                 source_map: ./dist/main.bundle.js.map
-                js_files: ./src/main.ts
+                #js_files: ./src/main.ts
             # Deploy to the S3 bucket corresponding to the current branch
             - run:
                 name: Deploy to S3
