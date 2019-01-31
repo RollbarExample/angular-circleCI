@@ -10,7 +10,7 @@
     "build-dev": "ng build --target=development --environment=dev",
     "build-qa": "ng build --target=production --environment=qa",
     "prebuild.prod": "ts-node git.version.ts",
-    "build.prod": "ng build --prod --output-hashing none --aot false --sourcemaps "
+    "build.prod": "ng build --prod --output --aot false --sourcemaps "
   },
   "private": true,
   "dependencies": {
