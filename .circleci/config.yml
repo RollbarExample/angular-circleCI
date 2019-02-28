@@ -100,6 +100,8 @@ jobs:
                         -F source_map=./dist \
                         -F main.ts=./src/main.ts
 
+                        echo ${CIRCLE_BUILD_NUM}
+
                     if [ "${CIRCLE_BRANCH}" == "develop" ]; then
                         aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read
                     elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
