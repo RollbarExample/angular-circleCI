@@ -100,7 +100,7 @@ jobs:
                         -F source_map=./dist \
                         -F main.ts=./src/main.ts
 
-                        echo ${CIRCLE_BUILD_NUM}
+                        
 
                     if [ "${CIRCLE_BRANCH}" == "develop" ]; then
                         aws --region us-east-2 s3 sync dist s3://rollbar-example/ --delete --acl public-read
@@ -111,7 +111,9 @@ jobs:
                     #aws s3 cp dist s3://rollbar-example --recursive --acl public-read
                     fi
                     # Notify to rollbar 
-
+            - run:
+                name: Show current branch
+                command: echo ${CIRCLE_BUILD_NUM}
             - rollbar/notify_deploy_finished:
                 deploy_id: $ROLLBAR_DEPLOY_ID
                 status: succeeded
