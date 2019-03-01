@@ -85,7 +85,7 @@ jobs:
             - run:
                 name: Setting Signature Version 4 for S3 Request Authentication
                 command: aws configure set default.s3.signature_version s3v4
-            #- rollbar/upload_sourcemap:
+           # - rollbar/upload_sourcemap:
             #    minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js
             #    source_map: ./dist/main.bundle.js.map
             #    js_files: ./src/main.ts
@@ -93,12 +93,12 @@ jobs:
             - run:
                 name: Deploy to S3
                 command: |
-                    curl https://api.rollbar.com/api/1/sourcemap/ \
-                        -F access_token=2a208f30fa1b4f0183adb694c4432038 \
-                        -F version=$CIRCLE_SHA1 \
-                        -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js \
-                        -F source_map=./dist \
-                        -F main.ts=./src/main.ts
+                   # curl https://api.rollbar.com/api/1/sourcemap/ \
+                   #     -F access_token=2a208f30fa1b4f0183adb694c4432038 \
+                   #     -F version=$CIRCLE_SHA1 \
+                   #     -F minified_url=https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js \
+                   #     -F source_map=./dist \
+                   #     -F main.ts=./src/main.ts
 
                         
 
@@ -127,9 +127,9 @@ workflows:
             - build
                 # The deploy job will only run on the filtered branches and
                 # require the build job to be successful before it starts
-            - deploy:
-                requires:
-                    - build
+          #  - deploy:
+           #     requires:
+           #         - build
                 filters:
                     branches:
                         only:
