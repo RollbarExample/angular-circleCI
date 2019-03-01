@@ -29,6 +29,7 @@ module.exports = webpackMerge(commonConfig, {
         minimize: false // workaround for ng2
       }
     }),
+    new Chunks2JsonPlugin({ outputDir: 'dist/', publicPath })
     
   ]
 });
