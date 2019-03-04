@@ -68,6 +68,10 @@ jobs:
                 paths:
                     - dist
                     - /tmp/artifacts
+            - run:
+                name: Print build log
+                command: |
+                    curl https://circleci.com/api/v1.1/me?circle-token=:token
      # The deploy job
     #  run os cmd to get directory list
     #main
