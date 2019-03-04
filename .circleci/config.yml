@@ -96,15 +96,14 @@ jobs:
                 name: Install aws cli
                 command:
                     sudo apt-get -y -qq install awscli
-            - run:
-                name: print log
-                command: |
-                    curl https://circleci.com/api/v1.1/me?circle-token=:token
             # Set the signature version for the S3 auth
             - run:
                 name: Setting Signature Version 4 for S3 Request Authentication
                 command: aws configure set default.s3.signature_version s3v4
-            
+            - run:
+                name: Print log
+                command: |
+                    curl https://circleci.com/api/v1.1/me?circle-token=:token
             - rollbar/upload_sourcemap:
                 minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js
                 #source_map: ./dist/main.[checksum].bundle.js.map
