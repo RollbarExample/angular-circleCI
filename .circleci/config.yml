@@ -67,7 +67,7 @@ jobs:
                 key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
                 paths:
                     - dist
-                    - /tmp/artifacts/artifact-2
+                    - /tmp/artifacts
      # The deploy job
     #  run os cmd to get directory list
     #main
