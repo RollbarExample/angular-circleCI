@@ -71,7 +71,7 @@ jobs:
             - run:
                 name: Print build log
                 command: |
-                    curl https://circleci.com/api/v1.1/me?circle-token=:token
+                    curl https://circleci.com/api/v1.1/me?circle-token=83929420ac8669d080cb9a20e610972312b18554
      # The deploy job
     #  run os cmd to get directory list
     #main
