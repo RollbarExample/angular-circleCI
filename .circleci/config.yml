@@ -70,7 +70,8 @@ jobs:
             - run:
                 name: Print build log
                 command: |
-                    export SOURCE_MAP=$(find ./dist/ -type f -iname "main*.map") && echo ${SOURCE_MAP}
+                    export SOURCE_MAP=$(find ./dist/ -type f -iname "main.*.bundle.js.map") && echo ${SOURCE_MAP}
+                    export BUNDLE=$(find ./dist/ -type f -iname "main.*.bundle.js") && echo ${BUNDLE}
                     #curl https://circleci.com/api/v1.1/project/:github/:RollbarExample/:angular-circleCIrecent-builds?circle-token=83929420ac8669d080cb9a20e610972312b18554
      # The deploy job
     #  run os cmd to get directory list
@@ -104,8 +105,11 @@ jobs:
             - run:
                 name: Setting Signature Version 4 for S3 Request Authentication
                 command: aws configure set default.s3.signature_version s3v4
+            - run:
+                name: PWDDDD
+                command: echo $(pwd)
             - rollbar/upload_sourcemap:
-                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js
+                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/${BUNDLE}
                 #source_map: ./dist/main.[checksum].bundle.js.map
                # source_map: ./dist/"main*/*.bundle.js.map"
                 source_map: ${SOURCE_MAP}
