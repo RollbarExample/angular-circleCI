@@ -70,7 +70,7 @@ jobs:
             - run:
                 name: Print build log
                 command: |
-                    cd ./dist && find -type f -iname "main*.map" && cd ..
+                    find ./dist/ -type f -iname "main*.map"
                     #curl https://circleci.com/api/v1.1/project/:github/:RollbarExample/:angular-circleCIrecent-builds?circle-token=83929420ac8669d080cb9a20e610972312b18554
      # The deploy job
     #  run os cmd to get directory list
@@ -108,7 +108,7 @@ jobs:
                 minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js
                 #source_map: ./dist/main.[checksum].bundle.js.map
                # source_map: ./dist/"main*/*.bundle.js.map"
-                source_map: ./dist/main.bundle.js.map
+                source_map:  find ./dist/ -type f -iname "main*.map"
                 js_files: ./src/main.ts
             # Deploy to the S3 bucket corresponding to the current branch
             - run:
