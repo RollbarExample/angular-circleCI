@@ -109,10 +109,10 @@ jobs:
                 name: PWDDDD
                 command: echo $(pwd)
             - rollbar/upload_sourcemap:
-                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/${BUNDLE}
-                #source_map: ./dist/main.[checksum].bundle.js.map
+                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.bundle.js
+                source_map: ./dist/main.[$CIRCLE_SHA1].bundle.js.map
                # source_map: ./dist/"main*/*.bundle.js.map"
-                source_map: ${SOURCE_MAP}
+                #source_map: ${SOURCE_MAP}
                 js_files: ./src/main.ts
             # Deploy to the S3 bucket corresponding to the current branch
             - run:
