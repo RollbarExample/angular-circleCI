@@ -109,7 +109,7 @@ jobs:
                 name: PWDDDD
                 command: echo $(pwd)
             - rollbar/upload_sourcemap:
-                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/${BUNDLE}
+                minified_url: https://s3.us-east-2.amazonaws.com/rollbar-example/main.[hash].bundle.js
                 #source_map: ./dist/main.[$CIRCLE_SHA1].bundle.js.map
                # source_map: ./dist/"main*/*.bundle.js.map"
                 source_map: ${SOURCE_MAP}
