@@ -70,8 +70,8 @@ jobs:
             - run:
                 name: Print build log
                 command: |
-                    export SOURCE_MAP=$(find ./dist/ -type f -iname "main.*.bundle.js.map") && echo ${SOURCE_MAP}
-                    export BUNDLE=$(find ./dist/ -type f -iname "main.*.bundle.js") && echo ${BUNDLE}
+                    export SOURCE_MAP=$(find dist/ -type f -iname "main.*.bundle.js.map") && echo ${SOURCE_MAP}
+                    export BUNDLE=$(find dist/ -type f -iname "main.*.bundle.js") && echo ${BUNDLE}
                     #curl https://circleci.com/api/v1.1/project/:github/:RollbarExample/:angular-circleCIrecent-builds?circle-token=83929420ac8669d080cb9a20e610972312b18554
      # The deploy job
     #  run os cmd to get directory list
