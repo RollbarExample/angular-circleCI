@@ -109,7 +109,7 @@ jobs:
                 #source_map: ./dist/main.[checksum].bundle.js.map
                # source_map: ./dist/"main*/*.bundle.js.map"
                 source_map: ${SOURCE_MAP}
-                js_files: ./src/main.ts
+                js_files: ./src/main11111.ts
             # Deploy to the S3 bucket corresponding to the current branch
             - run:
                 name: Deploy to S3
